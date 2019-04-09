@@ -23,4 +23,22 @@ class Player {
 
     return tokens;
   }
+
+  /**
+   *  Gets all tokens that haven't been dropped
+   *  @return {array} Array of unused tokens
+   */
+  get unusedTokens() {
+    return this.tokens.filter(token => !token.dropped); // any token.dropped not equal true
+  }
+  /**
+   *  Gets the active token by returning the first token in the array of unused tokens.
+   * @return {Object} First token object in the array of unused tokens
+   */
+  get activeToken() {
+    return this.unusedTokens[0];
+  }
 }
+
+// because the unusedTokens has been created with a getter method it can be accessed
+// like any regular property this.unusedTokens
